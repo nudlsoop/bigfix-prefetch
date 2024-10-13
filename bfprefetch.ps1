@@ -43,9 +43,9 @@ function bfprefetch {
 
     ## Print the prefetch statement in the desired format, and copy to clipboard
     $PrefetchStatement = switch ($AddPrefetchItem) {
-        $true { 'add prefetch item name={0} sha1={1} size={2} url={3} sha256={4}' -f $Name, $Sha1, $Size, $Url, $Sha256 }
+        $true   { 'add prefetch item name={0} sha1={1} size={2} url={3} sha256={4}' -f $Name, $Sha1, $Size, $Url, $Sha256 }
         Default {'prefetch "{0}" sha1:{1} size:{2} "{3}" sha256:{4}' -f $Name, $Sha1, $Size, $Url, $Sha256}
     }
-    "$PrefetchStatement`n  $AddPrefetchItem" | Write-Output
-    "$PrefetchStatement`n  $AddPrefetchItem" | clip.exe 
+    "$PrefetchStatement" | Write-Output
+    "$PrefetchStatement" | clip.exe 
 }
